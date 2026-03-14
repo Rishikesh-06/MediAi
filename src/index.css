@@ -1,0 +1,959 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Semantic tokens from existing design */
+    --background: 156 100% 3%;
+    --foreground: 156 40% 93%;
+    --card: 156 53% 8%;
+    --card-foreground: 156 40% 93%;
+    --popover: 156 53% 8%;
+    --popover-foreground: 156 40% 93%;
+    --primary: 152 100% 45%;
+    --primary-foreground: 156 100% 3%;
+    --secondary: 156 40% 12%;
+    --secondary-foreground: 156 40% 93%;
+    --muted: 156 30% 15%;
+    --muted-foreground: 156 30% 55%;
+    --accent: 156 40% 12%;
+    --accent-foreground: 156 40% 93%;
+    --destructive: 353 90% 64%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 156 35% 17%;
+    --input: 156 35% 17%;
+    --ring: 152 100% 45%;
+    --radius: 0.75rem;
+    --surface-2: 155 50% 12%;
+    --urgent: 37 100% 56%;
+    --urgent-foreground: 37 100% 10%;
+    --info: 190 90% 59%;
+    --info-foreground: 190 90% 10%;
+    --sidebar-background: 156 53% 5%;
+    --sidebar-foreground: 156 30% 55%;
+    --sidebar-primary: 152 100% 45%;
+    --sidebar-primary-foreground: 156 100% 3%;
+    --sidebar-accent: 156 40% 12%;
+    --sidebar-accent-foreground: 156 40% 93%;
+    --sidebar-border: 156 35% 17%;
+    --sidebar-ring: 152 100% 45%;
+
+    /* Theme CSS Variables - Dark Mode (default) */
+    --bg-primary: #020d0a;
+    --bg-surface: #0a1a12;
+    --bg-card: #0d2a1a;
+    --bg-hover: #1a4030;
+    --bg-input: #0a1a12;
+    
+    --border-default: #1a4030;
+    --border-light: #0d2a1a;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --text-muted: #666666;
+    --text-placeholder: #444444;
+    
+    --accent-green: #00e87a;
+    --accent-green-dim: rgba(0,232,122,0.1);
+    --accent-green-border: rgba(0,232,122,0.2);
+    
+    --emergency-red: #ff4757;
+    --warning-amber: #ffa502;
+    --info-cyan: #00b8d9;
+    --purple: #a855f7;
+    
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    
+    --sidebar-bg: #062a12;
+    --header-bg: #062a12;
+    --nav-active: rgba(0,232,122,0.1);
+  }
+
+  /* LIGHT MODE — Warm Premium Palette */
+  [data-theme="light"] {
+    /* Semantic tokens for light mode */
+    --background: 145 30% 96%;
+    --foreground: 156 60% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 156 60% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 156 60% 8%;
+    --primary: 152 100% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 20% 90%;
+    --secondary-foreground: 156 60% 15%;
+    --muted: 150 20% 92%;
+    --muted-foreground: 156 20% 40%;
+    --accent: 150 25% 92%;
+    --accent-foreground: 156 60% 15%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 30% 80%;
+    --input: 150 30% 80%;
+    --ring: 152 100% 33%;
+    --sidebar-background: 152 60% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 152 100% 50%;
+    --sidebar-primary-foreground: 156 100% 3%;
+    --sidebar-accent: 152 40% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 152 40% 25%;
+    --sidebar-ring: 152 100% 50%;
+
+    /* Theme CSS Variables - Light Mode */
+    --bg-primary: #f0f7f4;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --bg-hover: #e8f5ef;
+    --bg-input: #f8fffe;
+    
+    --border-default: #c8e6d4;
+    --border-light: #e0f2ea;
+    
+    --text-primary: #0a2018;
+    --text-secondary: #3d6b53;
+    --text-muted: #6b9980;
+    --text-placeholder: #9dbfad;
+    
+    --accent-green: #00a855;
+    --accent-green-dim: rgba(0,168,85,0.08);
+    --accent-green-border: rgba(0,168,85,0.25);
+    
+    --emergency-red: #e53935;
+    --warning-amber: #f57c00;
+    --info-cyan: #0097a7;
+    --purple: #7b1fa2;
+    
+    --shadow-sm: 0 2px 8px rgba(0,100,50,0.08);
+    --shadow-md: 0 8px 32px rgba(0,100,50,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,100,50,0.16);
+    
+    --sidebar-bg: #1b4332;
+    --header-bg: #1b4332;
+    --nav-active: rgba(255,255,255,0.12);
+}
+} /* end @layer base */
+
+
+/* PAGE-SPECIFIC DARK MODE STYLES */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Health Check Page - Green Theme */
+[data-theme="dark"] [class*="health-check-sidebar"],
+[data-theme="dark"] [class*="check-history"] {
+  background: #0d1a14;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] [class*="emergency-badge"] {
+  background: rgba(255,71,87,0.15);
+  color: #ff6b7a;
+  border: 1px solid rgba(255,71,87,0.25);
+}
+
+[data-theme="dark"] [class*="check-main"],
+[data-theme="dark"] [class*="step-panel"] {
+  background: #0a1510;
+}
+
+[data-theme="dark"] [class*="body-diagram"] {
+  background: #0d1a14;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+}
+
+/* AI Assistant Page - Purple/Blue Theme */
+[data-theme="dark"] [class*="chat-sidebar"],
+[data-theme="dark"] [class*="conversation-list"] {
+  background: #0d1a14;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] [class*="conversation-item"].active {
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.2);
+}
+
+[data-theme="dark"] [class*="chat-header"] {
+  background: #0d1a14;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] [class*="ai-message"],
+[data-theme="dark"] [class*="bot-message"] {
+  background: #141f18;
+  border: 1px solid rgba(99,102,241,0.15);
+  color: #eef5f1;
+}
+
+[data-theme="dark"] [class*="user-message"] {
+  background: rgba(0,232,122,0.12);
+  border: 1px solid rgba(0,232,122,0.2);
+}
+
+[data-theme="dark"] [class*="quick-chip"],
+[data-theme="dark"] [class*="suggestion-chip"] {
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.2);
+  color: #a5b4fc;
+}
+
+[data-theme="dark"] [class*="chat-input"] {
+  background: #141f18;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Prescriptions Page - Amber Theme */
+[data-theme="dark"] [class*="prescription-sidebar"],
+[data-theme="dark"] [class*="scan-history"] {
+  background: #0d1a14;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] [class*="drop-zone"],
+[data-theme="dark"] [class*="upload-area"] {
+  background: #0f1d15;
+  border: 2px dashed rgba(251,191,36,0.2);
+  border-radius: 16px;
+}
+
+/* Book Doctor Page - Cyan Theme */
+[data-theme="dark"] [class*="doctor-search"],
+[data-theme="dark"] [class*="search-bar"] {
+  background: #111e17;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+[data-theme="dark"] [class*="doctor-card"] {
+  background: linear-gradient(135deg, #0d1a18, #091410);
+  border: 1px solid rgba(6,182,212,0.12);
+  border-radius: 16px;
+}
+
+[data-theme="dark"] [class*="doctor-card"]:hover {
+  border-color: rgba(6,182,212,0.3);
+  box-shadow: 0 8px 32px rgba(6,182,212,0.08);
+}
+
+/* Mental Health Page - Purple Theme */
+[data-theme="dark"] [class*="feeling-card"],
+[data-theme="dark"] [class*="mood-card"] {
+  background: linear-gradient(135deg, #130d1a, #0e0814);
+  border: 1px solid rgba(167,139,250,0.15);
+  border-radius: 16px;
+}
+
+[data-theme="dark"] [class*="crisis"],
+[data-theme="dark"] [class*="helpline"] {
+  background: linear-gradient(135deg, #1a0d14, #130a10);
+  border: 1px solid rgba(251,113,133,0.15);
+}
+
+/* Wellness Page - Multi-color Theme */
+[data-theme="dark"] [class*="goal-card"],
+[data-theme="dark"] [class*="wellness-goals"] {
+  background: #111e17;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] [class*="goal-option"] {
+  background: #0d1a14;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.75);
+}
+
+[data-theme="dark"] [class*="conditions-card"] {
+  background: #111e17;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Appointments Page - Cyan Theme */
+[data-theme="dark"] [class*="appointment-card"] {
+  background: linear-gradient(135deg, #0d1a18, #091410);
+  border: 1px solid rgba(6,182,212,0.12);
+  border-radius: 14px;
+}
+
+/* Reports Page - Multi-color Theme */
+[data-theme="dark"] [class*="chart-card"],
+[data-theme="dark"] [class*="vitals-chart"] {
+  background: linear-gradient(135deg, #0d1a18, #091410);
+  border: 1px solid rgba(6,182,212,0.1);
+}
+
+[data-theme="dark"] [class*="needs-attention"] {
+  background: linear-gradient(135deg, #1a0d08, #140a06);
+  border: 1px solid rgba(251,146,60,0.2);
+}
+
+[data-theme="dark"] [class*="recommendations"] {
+  background: linear-gradient(135deg, #0a1a12, #071410);
+  border: 1px solid rgba(52,211,153,0.2);
+}
+
+/* Village Map Page - Zone Colors */
+[data-theme="dark"] [class*="map-container"],
+[data-theme="dark"] iframe {
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  filter: brightness(0.9) saturate(0.8);
+}
+
+[data-theme="dark"] [class*="village-card"] {
+  background: #111e17;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Reminders Page - Amber Theme */
+[data-theme="dark"] [class*="reminder-card"] {
+  background: linear-gradient(135deg, #1a1208, #140e06);
+  border: 1px solid rgba(251,146,60,0.12);
+  border-radius: 14px;
+}
+
+/* Leaderboard Page - Ranking Colors */
+[data-theme="dark"] [class*="leaderboard"] {
+  background: #080f0c;
+}
+
+[data-theme="dark"] [class*="rank-card"],
+[data-theme="dark"] [class*="village-rank"] {
+  background: #111e17;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ========================================
+   HEALTH CHECK BODY DIAGRAM - LIGHT MODE
+   ======================================== */
+
+/* SELECTED AREA TAGS (Head & Face ✓) */
+[data-theme="light"] [class*="selected-area"],
+[data-theme="light"] [class*="selectedArea"],
+[data-theme="light"] [class*="area-tag"],
+[data-theme="light"] [class*="areaTag"] {
+  background: rgba(0,168,85,0.15) !important;
+  border: 1.5px solid #00a855 !important;
+  color: #005c2e !important;
+  font-weight: 600 !important;
+}
+
+/* X remove button on area tag */
+[data-theme="light"] [class*="area-tag"] button,
+[data-theme="light"] [class*="selectedArea"] button {
+  color: #005c2e !important;
+  opacity: 0.7;
+}
+
+/* "Selected areas:" label */
+[data-theme="light"] [class*="selected-label"],
+[data-theme="light"] [class*="body-step"] > p:first-of-type,
+[data-theme="light"] [class*="bodyStep"] p {
+  color: #0a2018 !important;
+  font-weight: 600 !important;
+}
+
+/* "Common symptoms for selected areas:" */
+[data-theme="light"] [class*="common-symptoms"] p,
+[data-theme="light"] [class*="commonSymptoms"] p,
+[data-theme="light"] [class*="symptoms-label"],
+[data-theme="light"] [class*="symptomsLabel"] {
+  color: #3d6b53 !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+
+/* SYMPTOM SUGGESTION CHIPS (Headache, Dizziness, etc) — unselected state */
+[data-theme="light"] [class*="symptom-chip"],
+[data-theme="light"] [class*="symptomChip"],
+[data-theme="light"] [class*="suggestion-chip"],
+[data-theme="light"] [class*="suggestionChip"],
+[data-theme="light"] [class*="common-chip"],
+[data-theme="light"] [class*="commonChip"] {
+  background: #ffffff !important;
+  border: 1.5px solid #a8d5b8 !important;
+  color: #1a4a2e !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  cursor: pointer !important;
+  box-shadow: 0 1px 4px rgba(0,100,50,0.08) !important;
+}
+
+[data-theme="light"] [class*="symptom-chip"]:hover,
+[data-theme="light"] [class*="suggestionChip"]:hover,
+[data-theme="light"] [class*="commonChip"]:hover {
+  background: #e8f5ef !important;
+  border-color: #00a855 !important;
+  color: #005c2e !important;
+}
+
+/* SELECTED symptom chip (Headache — green filled) */
+[data-theme="light"] [class*="symptom-chip"].selected,
+[data-theme="light"] [class*="symptom-chip"].active,
+[data-theme="light"] [class*="symptomChip"].selected,
+[data-theme="light"] [class*="commonChip"].active,
+[data-theme="light"] [class*="chip"][aria-selected="true"] {
+  background: rgba(0,168,85,0.12) !important;
+  border: 1.5px solid #00a855 !important;
+  color: #005c2e !important;
+  font-weight: 700 !important;
+}
+
+/* Body diagram panel background */
+[data-theme="light"] [class*="body-panel"],
+[data-theme="light"] [class*="bodyPanel"],
+[data-theme="light"] [class*="diagram-container"],
+[data-theme="light"] [class*="diagramContainer"] {
+  background: #ffffff !important;
+  border: 1px solid #c8e6d4 !important;
+  border-radius: 16px !important;
+}
+
+/* Right info panel */
+[data-theme="light"] [class*="body-info"],
+[data-theme="light"] [class*="bodyInfo"],
+[data-theme="light"] [class*="area-info"],
+[data-theme="light"] [class*="areaInfo"] {
+  background: transparent !important;
+}
+
+/* Front/Back toggle buttons */
+[data-theme="light"] [class*="view-toggle"] button,
+[data-theme="light"] [class*="viewToggle"] button {
+  background: #ffffff !important;
+  border: 1.5px solid #c8e6d4 !important;
+  color: #3d6b53 !important;
+}
+
+[data-theme="light"] [class*="view-toggle"] button.active,
+[data-theme="light"] [class*="viewToggle"] button.active,
+[data-theme="light"] [class*="view-toggle"] button[data-active="true"] {
+  background: #00a855 !important;
+  border-color: #00a855 !important;
+  color: #ffffff !important;
+}
+
+/* "Tap on body parts that hurt" hint */
+[data-theme="light"] [class*="tap-hint"],
+[data-theme="light"] [class*="tapHint"],
+[data-theme="light"] [class*="body-hint"] {
+  color: #6b9980 !important;
+  font-size: 12px !important;
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background: var(--bg-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Fluid typography */
+  h1 { font-size: clamp(1.25rem, 4vw, 2rem); }
+  h2 { font-size: clamp(1.125rem, 3vw, 1.5rem); }
+  h3 { font-size: clamp(1rem, 2.5vw, 1.25rem); }
+
+  /* Prevent text overflow */
+  * {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border;
+    background: var(--bg-card);
+    border-color: var(--border-default);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    transform: scale(1.01);
+    border-color: var(--accent-green-border);
+    box-shadow: 0 0 20px var(--accent-green-dim);
+  }
+  .glow-border {
+    border-color: var(--accent-green-border);
+    box-shadow: 0 0 20px var(--accent-green-dim);
+  }
+  .glow-border-strong {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 30px var(--accent-green-dim);
+  }
+  .dot-grid {
+    background-image: radial-gradient(circle, var(--border-default) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--accent-green), var(--info-cyan));
+  }
+  .badge-emergency {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+    background: hsla(353, 90%, 64%, 0.15);
+    color: var(--emergency-red);
+  }
+  .badge-urgent {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+    background: hsla(37, 100%, 56%, 0.15);
+    color: var(--warning-amber);
+  }
+  .badge-safe {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+    background: var(--accent-green-dim);
+    color: var(--accent-green);
+  }
+  .badge-info {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+    background: hsla(190, 90%, 59%, 0.15);
+    color: var(--info-cyan);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-green-border) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--accent-green-border);
+    border-radius: 3px;
+  }
+}
+
+/* =============================================== */
+/* GLOBAL RESPONSIVE UTILITIES                     */
+/* =============================================== */
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1a4030; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #00e87a; }
+
+/* Hide scrollbar on mobile */
+@media (max-width: 640px) {
+  ::-webkit-scrollbar { display: none; }
+  * { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* GPU acceleration for animated elements */
+.sidebar, .modal, .overlay, .drawer,
+[class*="overlay"], [class*="modal"], [class*="drawer"] {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Mobile form inputs — prevent iOS zoom */
+@media (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px !important;
+    min-height: 48px;
+  }
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Hover only on non-touch devices */
+@media (hover: hover) {
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Touch active states */
+@media (hover: none) {
+  .glass-card-hover:active {
+    transform: scale(0.98);
+    transition: transform 100ms ease;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive tables on mobile */
+@media (max-width: 640px) {
+  .responsive-table table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table th,
+  .responsive-table td,
+  .responsive-table tr {
+    display: block;
+  }
+  .responsive-table thead { display: none; }
+  .responsive-table tr {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 12px;
+  }
+  .responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border: none;
+    font-size: 14px;
+  }
+  .responsive-table td::before {
+    content: attr(data-label);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+/* Safe area for fixed bottom elements */
+.safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* All images responsive */
+img, iframe { max-width: 100%; height: auto; }
+
+/* =============================================== */
+/* SKELETON LOADING ANIMATION                     */
+/* =============================================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+.skeleton-text {
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 60%;
+  border-radius: 6px;
+}
+
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.skeleton-card {
+  height: 120px;
+  border-radius: 12px;
+}
+
+/* =============================================== */
+/* INCOMING CALL PULSE ANIMATION                  */
+/* =============================================== */
+
+@keyframes ring-pulse {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(255,71,87,0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(255,71,87,0);
+    transform: scale(1.02);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(255,71,87,0);
+    transform: scale(1);
+  }
+}
+
+.incoming-call-card {
+  animation: ring-pulse 1.5s ease infinite;
+}
+
+/* =============================================== */
+/* THEME TRANSITION FLASH                         */
+/* =============================================== */
+
+.theme-flash {
+  position: fixed;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  z-index: 99999;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.theme-flash.active {
+  opacity: 0.3;
+}
+
+/* =============================================== */
+/* LIGHT MODE SPECIFIC OVERRIDES */
+/* =============================================== */
+
+[data-theme="light"] body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Sidebar stays dark forest green for beautiful contrast */
+[data-theme="light"] .sidebar,
+[data-theme="light"] aside {
+  background: var(--sidebar-bg) !important;
+  border-color: #2d6a4f !important;
+}
+
+[data-theme="light"] .sidebar .nav-item,
+[data-theme="light"] aside a {
+  color: rgba(255,255,255,0.7);
+}
+
+[data-theme="light"] .sidebar .nav-item:hover,
+[data-theme="light"] .sidebar .nav-item.active,
+[data-theme="light"] aside a:hover {
+  background: var(--nav-active);
+  color: white;
+}
+
+[data-theme="light"] .sidebar .logo-text,
+[data-theme="light"] aside .logo-text {
+  color: white;
+}
+
+/* Cards get white with green shadow */
+[data-theme="light"] .card,
+[data-theme="light"] [class*="glass-card"] {
+  background: var(--bg-card);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Inputs */
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background: var(--bg-input);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: var(--text-placeholder);
+}
+
+/* Tables */
+[data-theme="light"] table th {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] table td {
+  border-color: var(--border-light);
+  color: var(--text-primary);
+}
+
+/* Header/topbar */
+[data-theme="light"] .header,
+[data-theme="light"] .topbar {
+  background: var(--bg-surface);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Dot grid background in light */
+[data-theme="light"] .dot-grid {
+  background-image: radial-gradient(circle, rgba(0,168,85,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Scrollbar light mode */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--bg-hover);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #a8d5b8;
+  border-radius: 4px;
+}
+
+/* Landing page light mode */
+[data-theme="light"] .landing-page {
+  background: linear-gradient(160deg, #e8f5ef 0%, #f0f9f4 40%, #e0f2ea 100%);
+}
+
+[data-theme="light"] .portal-card {
+  background: white;
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="light"] .portal-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Video call page stays dark always */
+.video-call-page {
+  background: #020d0a !important;
+  color: white !important;
+}
+
+/* Body diagram SVG */
+[data-theme="light"] .body-svg path,
+[data-theme="light"] .body-svg circle {
+  stroke: #2d6a4f;
+}
+
+/* Button text visibility in light mode */
+[data-theme="light"] .btn-primary,
+[data-theme="light"] button[class*="bg-primary"] {
+  color: white;
+}
+
+/* Dialog/Modal backgrounds */
+[data-theme="light"] [role="dialog"] {
+  background: var(--bg-surface);
+  border-color: var(--border-default);
+}
+
+/* Popover backgrounds */
+[data-theme="light"] [data-radix-popper-content-wrapper] > div {
+  background: var(--bg-surface);
+  border-color: var(--border-default);
+}
+
+/* Dropdown menus */
+[data-theme="light"] [role="menu"] {
+  background: var(--bg-surface);
+  border-color: var(--border-default);
+}
+
+/* Select dropdowns */
+[data-theme="light"] [role="listbox"] {
+  background: var(--bg-surface);
+  border-color: var(--border-default);
+}
+
+/* Tooltip */
+[data-theme="light"] [role="tooltip"] {
+  background: var(--sidebar-bg);
+  color: white;
+}
+
+/* Mobile nav stays dark for usability */
+[data-theme="light"] nav[class*="fixed bottom-0"] {
+  background: var(--sidebar-bg) !important;
+  border-color: #2d6a4f !important;
+}
+
+[data-theme="light"] nav[class*="fixed bottom-0"] a,
+[data-theme="light"] nav[class*="fixed bottom-0"] button {
+  color: rgba(255,255,255,0.7);
+}
+
+[data-theme="light"] nav[class*="fixed bottom-0"] a:hover,
+[data-theme="light"] nav[class*="fixed bottom-0"] .active {
+  color: white;
+}
+
+/* Mobile header */
+[data-theme="light"] div[class*="md:hidden fixed top-0"] {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-default) !important;
+}
+
+/* Health Check Hub Cards - Dark mode */
+.dark .hub-card-full-body {
+  background: linear-gradient(135deg, #0d1a18, #091410) !important;
+  border-color: rgba(0,232,122,0.2) !important;
+}
+.dark .hub-card-full-body:hover {
+  border-color: rgba(0,232,122,0.45) !important;
+  box-shadow: 0 12px 40px rgba(0,232,122,0.12) !important;
+}
+.dark .hub-btn-full-body {
+  background: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+.dark .hub-card-womens-health {
+  background: linear-gradient(135deg, #1a0d14, #120810) !important;
+  border-color: rgba(251,113,133,0.2) !important;
+}
+.dark .hub-card-womens-health:hover {
+  border-color: rgba(251,113,133,0.45) !important;
+  box-shadow: 0 12px 40px rgba(251,113,133,0.1) !important;
+}
+.dark .hub-btn-womens-health {
+  background: rgba(251,113,133,0.15) !important;
+  color: #fb7185 !important;
+  border: 1px solid rgba(251,113,133,0.3) !important;
+}
+.dark .hub-card-mental-health {
+  background: linear-gradient(135deg, #130d1a, #0e0814) !important;
+  border-color: rgba(167,139,250,0.2) !important;
+}
+.dark .hub-card-mental-health:hover {
+  border-color: rgba(167,139,250,0.45) !important;
+  box-shadow: 0 12px 40px rgba(167,139,250,0.1) !important;
+}
+.dark .hub-btn-mental-health {
+  background: rgba(167,139,250,0.15) !important;
+  color: #a78bfa !important;
+  border: 1px solid rgba(167,139,250,0.3) !important;
+}
